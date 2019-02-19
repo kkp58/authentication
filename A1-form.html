@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "en">
+<meta charset = "utf-8"/>
+
+<style>
+    .amnt{ display : none;}
+	.num{ display : none;}
+	.banking{ width: 70%; background: white; margin: auto;}
+</style>
+
+<form action="A1-main.php">
+
+<script>
+function f() {
+    ptr1 = document.getElementById("choice")
+	v1 = ptr1.value;
+	
+	if (v1 == "S") {
+		v2 = document.getElementById("num");
+		v2.style.display = "inline";
+		v3 = document.getElementById("amnt");
+		v3.style.display = "none";
+    }
+	
+	if (v1 == "D" || v1 == "W") {
+		v2 = document.getElementById("num");
+		v2.style.display = "none";
+		v3 = document.getElementById("amnt");
+		v3.style.display = "inline";               
+	}
+	
+	if (v1 == "0") {
+		v2 = document.getElementById("num");
+		v2.style.display = "none";                                                
+		v3 = document.getElementById("amnt");
+		v3.style.display = "none";
+	}
+	
+}
+</script>
+
+<br><br><fieldset class = "banking">
+	User<input type=text name="user" id = "user"           
+	     placeholder="Enter your username" required autofocus autocomplete=off>
+    	<br><br>   
+              
+	Pass<input type=text name="pass" id ="pass"
+	    placeholder="Enter your Password" required autocomplete=off>
+    	<br><br>
+	
+	Service<select name="choice" id="choice" onchange="f()">
+		<option value="0"> Pick One </option>
+		<option value="S"> Show </option>
+		<option value="D"> Deposit </option>
+    	<option value="W"> Withdraw</option>
+		</select>
+
+	<br><br>
+	
+	<span class="amnt" id="amnt">
+	Amount<input type=number name="amnt" id ="amnt" step = 0.01 min=0.00
+	    placeholder="default 0.00" autocomplete=off>For deposit and withdraw only</span>
+        <br><br>
+     
+	<span class="num" id="num">
+    Number<input type=number name="num" id="num" step = 1 min=1
+        placeholder="default 2" autocomplete=off>For show only</span>
+		<br><br><br>
+        
+ 	
+	Email receipt<input type="checkbox" name="mail" id="mail">
+	<br><br>
+	
+	<input type="submit" value="Submit"><br><br>
+	
+</fieldset>
+</form>
+</html>
+
+
+
+
+
